@@ -22,7 +22,7 @@ const colors = {
   java: "blue",
   JavaScript: "green",
   springBoot: "green",
-  Versil: "black",
+  Vite: "LightBlue",
 };
 
 const fonts = {

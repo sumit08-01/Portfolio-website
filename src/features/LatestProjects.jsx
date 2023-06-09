@@ -1,9 +1,20 @@
-import { Box, Flex, Heading, Wrap, WrapItem, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Wrap,
+  WrapItem,
+  Text,
+  Icon,
+  Link,
+  HStack,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { ImageSlider } from "../components/ImageSlider/ImageSlider";
 import { Badge } from "../components/Badge";
 import { ProjectsAPI } from "../api/projects";
 // import { useTranslation } from "react-i18next";
+import { BsLink } from "react-icons/bs";
 
 export const LatestProjects = () => {
   const [projects, setProjects] = useState();
@@ -14,10 +25,18 @@ export const LatestProjects = () => {
       setProjects(projectsResponse);
     })();
   }, []);
+  console.log(projects);
 
   // const { t, i18n } = useTranslation("home");
 
-  const renderProject = ({ images, title, id, description, technologies }) => {
+  const renderProject = ({
+    images,
+    title,
+    id,
+    description,
+    technologies,
+    webLink,
+  }) => {
     return (
       <WrapItem key={id} flexDirection="column">
         <ImageSlider imageList={images.map((img) => img.downloadURL)} />
@@ -30,9 +49,17 @@ export const LatestProjects = () => {
             mr={3}
             verticalAlign="middle"
           />
+
           {title}
         </Heading>
         <Text>{description}</Text>
+        <HStack>
+          <Text>visit website</Text>
+          <Link href={webLink} isExternal>
+            <Icon as={BsLink} isexternal="true"></Icon>
+          </Link>
+        </HStack>
+
         <Wrap mt={2} maxW={350}>
           {technologies.map((tech) => (
             <WrapItem key={tech}>
@@ -43,6 +70,7 @@ export const LatestProjects = () => {
       </WrapItem>
     );
   };
+
   return (
     <Flex direction="column" w="100%">
       {/* <Heading>{t("latestProjects")}</Heading> */}
