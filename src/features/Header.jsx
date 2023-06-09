@@ -32,7 +32,8 @@ export const Header = () => {
           fontWeight="bold"
           isExternal
         >
-          {t("hireMe")}
+          {/* {t("hireMe")} */}
+          Hire Me
         </Link>
         <Link href="https://github.com/sumit0108/Resume.git" isExternal>
           <Icon as={BsDownload} w={8} h={8} />
