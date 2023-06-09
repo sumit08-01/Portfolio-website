@@ -12,10 +12,11 @@ import human2 from "@/assets/images/human2.webp";
 import { Badge } from "../components/Badge";
 // import { useTranslation } from "react-i18next";
 const SKILLS = [
-  { lable: "React" },
-  { lable: "Redux" },
   { lable: "java" },
   { lable: "springBoot" },
+  { lable: "React" },
+  { lable: "Redux" },
+  { lable: "Git" },
 ];
 
 export const Landing = () => {

@@ -8,8 +8,8 @@ const colors = {
   secondary: "#0F1B61",
   black: "#000000",
 
-  React: "#FF7308",
-  Redux: "black",
+  React: "#C65442",
+  Redux: "#BD7D94",
   Typescript: "#0F1B61",
   "Node.JS": "#000000bc",
   ES6: "#fea154",
@@ -23,6 +23,7 @@ const colors = {
   JavaScript: "green",
   springBoot: "green",
   Vite: "LightBlue",
+  Git: "black",
 };
 
 const fonts = {
