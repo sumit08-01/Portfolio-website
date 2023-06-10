@@ -5,9 +5,22 @@ import flagENImg from "@/assets/images/flag-en.png";
 import flagInd from "@/assets/images/india.png";
 // import flagFRImg from "@/assets/images/flag-fr.png";
 import { useTranslation } from "react-i18next";
+import { saveAs } from "file-saver";
+
+import { ProjectsAPI } from "../api/projects";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const { t, i18n } = useTranslation("home");
+
+  const [projects, setProjects] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const projectsResponse = await ProjectsAPI.fetchAll();
+      setProjects(projectsResponse);
+    })();
+  }, []);
 
   const switchLanguage = () => {
     console.log("language changed");
@@ -16,6 +29,17 @@ export const Header = () => {
 
     i18n.changeLanguage(i18n.language === "en" ? "fr" : "en");
   };
+
+  async function downloadRes() {
+    let list = "";
+    projects.map((resum) => {
+      resum.title === "PortFolio" ? (list = resum) : "";
+    });
+    const url = list.resume.map((url) => url.downloadURL);
+    const resumeResponse = await fetch(url); // this will give the url of the image
+    const resumepdf = await resumeResponse.blob(); // this will create a blob of a image for download
+    saveAs(resumepdf, "Sumit_Resume");
+  }
 
   return (
     <Flex justify={"space-between"}>
@@ -36,11 +60,15 @@ export const Header = () => {
           <Button style={{ background: "Lightgreen" }}>Hire Me</Button>
         </Link>
 
-        <Button style={{ background: "skyblue" }}>
-          <a href="My Resume(sumit).pdf" download="SumitResume.pdf">
-            Download Resume
-          </a>
+        <Button style={{ background: "skyblue" }} onClick={downloadRes}>
+          Download Resume
         </Button>
+        {/* <Button>
+          <a href="My Resume(sumit).pdf" download="SumitResume.pdf">
+            Download Resume // THis Button download resume from in the code, Only thing you can you --> Add you resume or other file in public folder
+                              and in href give the file name and in download "give the same of you downloaded file"
+          </a>
+        </Button> */}
         <Image
           onClick={switchLanguage}
           pl={20}

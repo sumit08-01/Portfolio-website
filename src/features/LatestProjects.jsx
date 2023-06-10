@@ -53,7 +53,7 @@ export const LatestProjects = () => {
         </Heading>
         <Text>{description}</Text>
         <HStack>
-          <Text>visit website</Text>
+          <Text>Visit website</Text>
           <Link href={webLink} isExternal>
             <Icon as={BsLink} isexternal="true"></Icon>
           </Link>
