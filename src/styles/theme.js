@@ -11,7 +11,6 @@ const colors = {
   React: "#C65442",
   Redux: "#BD7D94",
   Typescript: "#0F1B61",
-  "Node.JS": "#000000bc",
   ES6: "#fea154",
   Html: "#E72F09",
   Css: "#3878F4",

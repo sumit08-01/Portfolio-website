@@ -1,10 +1,10 @@
-import { Flex, HStack, Icon, Image, Link } from "@chakra-ui/react";
+import { Button, Flex, HStack, Image, Link } from "@chakra-ui/react";
 import bubbleImg from "@/assets/images/bubble.png";
 import logoImg from "@/assets/images/logo.png";
 import flagENImg from "@/assets/images/flag-en.png";
-import flagFRImg from "@/assets/images/flag-fr.png";
+import flagInd from "@/assets/images/india.png";
+// import flagFRImg from "@/assets/images/flag-fr.png";
 import { useTranslation } from "react-i18next";
-import { BsDownload } from "react-icons/bs";
 
 export const Header = () => {
   const { t, i18n } = useTranslation("home");
@@ -33,16 +33,18 @@ export const Header = () => {
           isExternal
         >
           {/* {t("hireMe")} */}
-          Hire Me
-        </Link>
-        <Link href="https://github.com/sumit0108/Resume.git" isExternal>
-          <Icon as={BsDownload} w={8} h={8} />
+          <Button style={{ background: "Lightgreen" }}>Hire Me</Button>
         </Link>
 
+        <Button style={{ background: "skyblue" }}>
+          <a href="My Resume(sumit).pdf" download="SumitResume.pdf">
+            Download Resume
+          </a>
+        </Button>
         <Image
           onClick={switchLanguage}
           pl={20}
-          src={i18n.language === "en" ? flagENImg : flagFRImg}
+          src={i18n.language === "en" ? flagENImg : flagInd}
           // src={flagENImg}
           h={8}
           cursor="pointer"

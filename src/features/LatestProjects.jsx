@@ -25,7 +25,6 @@ export const LatestProjects = () => {
       setProjects(projectsResponse);
     })();
   }, []);
-  console.log(projects);
 
   // const { t, i18n } = useTranslation("home");
 
