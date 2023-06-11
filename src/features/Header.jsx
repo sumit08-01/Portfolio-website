@@ -1,4 +1,11 @@
-import { Button, Flex, HStack, Image, Link } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  HStack,
+  Image,
+  Link,
+  useColorMode,
+} from "@chakra-ui/react";
 import bubbleImg from "@/assets/images/bubble.png";
 import logoImg from "@/assets/images/logo.png";
 import flagENImg from "@/assets/images/flag-en.png";
@@ -6,6 +13,7 @@ import flagInd from "@/assets/images/india.png";
 // import flagFRImg from "@/assets/images/flag-fr.png";
 import { useTranslation } from "react-i18next";
 import { saveAs } from "file-saver";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { ProjectsAPI } from "../api/projects";
 import { useEffect, useState } from "react";
@@ -41,9 +49,12 @@ export const Header = () => {
     saveAs(resumepdf, "Sumit_Resume");
   }
 
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex justify={"space-between"}>
-      <Image src={logoImg} h={10} />
+      <HStack>
+        <Image src={logoImg} h={10} />
+      </HStack>
       <HStack>
         {/* this will align the component horizontialy */}
         <Image src={bubbleImg} h={10} />
@@ -69,9 +80,14 @@ export const Header = () => {
                               and in href give the file name and in download "give the same of you downloaded file"
           </a>
         </Button> */}
+        {colorMode === "dark" ? (
+          <SunIcon h={8} w={8} onClick={toggleColorMode} />
+        ) : (
+          <MoonIcon onClick={toggleColorMode} h={8} w={8} />
+        )}
         <Image
           onClick={switchLanguage}
-          pl={20}
+          // pl={10}
           src={i18n.language === "en" ? flagENImg : flagInd}
           // src={flagENImg}
           h={8}

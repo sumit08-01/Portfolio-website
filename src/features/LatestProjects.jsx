@@ -8,6 +8,7 @@ import {
   Icon,
   Link,
   HStack,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { ImageSlider } from "../components/ImageSlider/ImageSlider";
@@ -18,6 +19,8 @@ import { BsLink } from "react-icons/bs";
 
 export const LatestProjects = () => {
   const [projects, setProjects] = useState();
+
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     (async () => {
@@ -39,7 +42,11 @@ export const LatestProjects = () => {
     return (
       <WrapItem key={id} flexDirection="column">
         <ImageSlider imageList={images.map((img) => img.downloadURL)} />
-        <Heading size="md" mt={3} color="secondary">
+        <Heading
+          size="md"
+          mt={3}
+          color={colorMode === "dark" ? "light" : "secondary"}
+        >
           <Box
             display={"inline-block"}
             bg="primary.dark"

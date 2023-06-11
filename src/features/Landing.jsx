@@ -6,6 +6,7 @@ import {
   Text,
   Wrap,
   WrapItem,
+  useColorMode,
 } from "@chakra-ui/react";
 // import humanImg from "@/assets/images/human.png";
 import human2 from "@/assets/images/human2.webp";
@@ -21,11 +22,13 @@ const SKILLS = [
 
 export const Landing = () => {
   // const { t } = useTranslation("home");
+  const { colorMode } = useColorMode();
   const leftSection = (
     <Box>
       <Heading
         fontSize={{ base: "2xl", md: "4xl", xl: "7xl" }} // screen small fz=2xl, mid=4xl, large=7xl
-        color="secondary"
+        // color="secondary"
+        color={colorMode === "dark" ? "light" : "secondary"}
         whiteSpace="pre-line"
       >
         {/* {t("greetings")} */}
@@ -35,7 +38,7 @@ export const Landing = () => {
           .
         </Text>
       </Heading>
-      <Text fontSize="lg" color="secondary">
+      <Text fontSize="lg" ccolor={colorMode === "dark" ? "light" : "secondary"}>
         I am a{" "}
         <Text as="span" fontWeight="bold">
           {/*  if you add only Text it behave like a div, and when you add as="span" now it a span */}

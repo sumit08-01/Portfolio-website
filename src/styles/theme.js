@@ -26,7 +26,9 @@ const colors = {
 };
 
 const fonts = {
+  // heading: `'Poppins', sans-serif`,
   heading: `'Poppins', sans-serif`,
   body: `'Inter', sans-serif`,
 };
+
 export const myTheme = extendTheme({ colors, fonts });

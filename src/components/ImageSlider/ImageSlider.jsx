@@ -8,6 +8,7 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -15,6 +16,7 @@ import { useState } from "react";
 export const ImageSlider = ({ imageList }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { colorMode } = useColorMode();
 
   const opneModalSlider = (imgIndex) => {
     setCurrentImageIndex(imgIndex);
@@ -54,7 +56,10 @@ export const ImageSlider = ({ imageList }) => {
     >
       <ModalOverlay />
       <ModalContent bg="transparent" boxShadow="none">
-        <ModalCloseButton zIndex={1} bg="white" />
+        <ModalCloseButton
+          zIndex={1}
+          bg={colorMode === "dark" ? "black" : "white"}
+        />
         <ModalBody>{slider}</ModalBody>
       </ModalContent>
     </Modal>
