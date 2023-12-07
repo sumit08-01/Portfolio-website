@@ -81,9 +81,9 @@ export const Header = () => {
           </a>
         </Button> */}
         {colorMode === "dark" ? (
-          <SunIcon h={8} w={8} onClick={toggleColorMode} />
+          <SunIcon h={8} w={8} onClick={toggleColorMode} cursor="pointer" />
         ) : (
-          <MoonIcon onClick={toggleColorMode} h={8} w={8} />
+          <MoonIcon onClick={toggleColorMode} h={8} w={8} cursor="pointer" />
         )}
         <Image
           onClick={switchLanguage}

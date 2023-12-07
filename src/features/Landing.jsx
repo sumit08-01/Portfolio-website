@@ -59,9 +59,10 @@ export const Landing = () => {
   );
   const badgeExperience = (
     <Badge bg="primary.light" borderRadius={7} p={3} textAlign="center">
-      <Text fontSize="xl">
-        {new Date().getFullYear() - 2022 + "." + new Date().getMonth()}
-      </Text>
+      {/* <Text fontSize="xl">
+        {new Date().getFullYear() - 2022 + "." + (new Date().getMonth() - 2)}
+      </Text> */}
+      <Text fontSize="xl">{new Date().getFullYear() - 2021 + "."}</Text>
       <Text>years of experience</Text>
     </Badge>
   );
