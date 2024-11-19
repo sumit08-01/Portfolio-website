@@ -62,7 +62,7 @@ export const Landing = () => {
       {/* <Text fontSize="xl">
         {new Date().getFullYear() - 2022 + "." + (new Date().getMonth() - 2)}
       </Text> */}
-      <Text fontSize="xl">{new Date().getFullYear() - 2022 + "."}</Text>
+      <Text fontSize="xl">{new Date().getFullYear() - 2022 + "." + new Date().getMonth()}</Text>
       <Text>years of experience</Text>
     </Badge>
   );
