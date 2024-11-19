@@ -22,6 +22,13 @@ const SKILLS = [
 
 export const Landing = () => {
   // const { t } = useTranslation("home");
+const years = new Date().getFullYear() - 2022; // 2024-2022 = 2
+const months = new Date().getMonth(); // 11
+const fractionOfYear = months / 12; 
+const result = years + fractionOfYear;
+console.log(result.toFixed(1));  // The toFixed(1) ensures one decimal place
+  const experience = result.toFixed(1);
+
   const { colorMode } = useColorMode();
   const leftSection = (
     <Box>
@@ -62,7 +69,7 @@ export const Landing = () => {
       {/* <Text fontSize="xl">
         {new Date().getFullYear() - 2022 + "." + (new Date().getMonth() - 2)}
       </Text> */}
-      <Text fontSize="xl">{new Date().getFullYear() - 2022 + "." + new Date().getMonth()}</Text>
+      <Text fontSize="xl">{experience}</Text>
       <Text>years of experience</Text>
     </Badge>
   );
